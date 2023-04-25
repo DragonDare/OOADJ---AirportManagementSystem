@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+public interface AirportService {
+    List < Airport > getAllAirports();
+    void saveAirport(Airport airport);
+    Airport getAirportById(String airport_name);
+    void deleteAirportById(String airport_name);
+}
+@enduml
