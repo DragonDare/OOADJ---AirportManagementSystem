@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Airport Management System</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div class="container my-2">
+        <h1>Flight Records</h1>
+
+        <a th:href="@{/showNewAirportForm}" class="btn btn-primary btn-sm mb-3"> Add Record </a>
+        <a th:href="@{/logout}" class="btn btn-warning btn-sm mb-3"> Logout </a>
+        <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Airport Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Passenger Name</th>
+                    <th>Flight name</th>
+                    <th>Reviews</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="airport : ${listAirports}">
+                    <td th:text="${airport.airport_name}"></td>
+                    <td th:text="${airport.city}"></td>
+                    <td th:text="${airport.state}"></td>
+                    <td th:text="${airport.passenger_name}"></td>
+                    <td th:text="${airport.flight_name}"></td>
+                    <td th:text="${airport.reviews}"></td>
+                    <td> <a th:href="@{/showFormForUpdate/{id}(id=${airport.airport_name})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/deleteAirport/{id}(id=${airport.airport_name})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

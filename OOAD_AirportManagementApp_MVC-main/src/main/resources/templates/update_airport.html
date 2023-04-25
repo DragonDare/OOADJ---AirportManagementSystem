@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Airport Management System</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Airport Management System</h1>
+        <hr>
+        <h2>Update Airport</h2>
+
+        <form action="#" th:action="@{/saveAirport}" th:object="${airport}" method="POST">
+
+            <!-- Add hidden form field to handle update -->
+            <!-- <input type="hidden" th:field="*{airport_name}" />  -->
+
+            <input type="text" th:field="*{airport_name}" class="form-control mb-4 col-4" required>
+
+            <input type="text" th:field="*{city}" class="form-control mb-4 col-4" required>
+
+            <input type="text" th:field="*{state}" class="form-control mb-4 col-4" required>
+            <input type="text" th:field="*{passenger_name}" placeholder="Passenger name" class="form-control mb-4 col-4" required>
+            <input type="text" th:field="*{flight_name}" placeholder="Flight Name" class="form-control mb-4 col-4" required>
+            <input type="text" th:field="*{reviews}" placeholder="Reviews" class="form-control mb-4 col-4" required>
+            <button type="submit" class="btn btn-info col-2"> Update Record</button    >
+        </form>
+
+        <hr>
+
+        <a th:href="@{/home}"> Back to Flight Records</a>
+    </div>
+</body>
+
+</html>
